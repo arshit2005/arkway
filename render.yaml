@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: arkway
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm install --no-audit --no-fund && npm run build
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 20.18.1
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
+      - key: NEXT_PUBLIC_WALLET_CONNECT_ID
+        sync: false
+      - key: NEXT_PUBLIC_POLYBASE_NAMESPACE
+        sync: false
